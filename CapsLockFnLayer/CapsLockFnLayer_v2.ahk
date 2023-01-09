@@ -27,7 +27,7 @@ SetScrollLockState "AlwaysOff"
 ; Explicitly set global variables for clarity
 global IsSuspended := false
 global IsCzLayerOn := false
-retur
+return
 
 ; CapsLock + Q, S, A => Ctrl, Shift, Alt
 CapsLock & q:: Send "{Blind}{Ctrl Down}"
