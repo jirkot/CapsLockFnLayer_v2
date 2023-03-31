@@ -1,15 +1,26 @@
 ; Functionality:
-; - Deactivates CapsLock for normal use. You can turn CapsLock back on & suspend the script by pressing Win + CapsLock.
-; - Access the following functions when pressing CapsLock:
-;     Cursor keys             - J, K, L, I
-;     Enter                   - Space
-;     Home, End, PgDn, PgUp   - H, E, D, U
-;     Backspace, Insert, Del  - B, N, M
-;     Tab                     - T
-;     Undo, redo              - , and .
-;     Num row                 - Esc and F keys
-;     Win Key                 - W
-;     Ctrl                    - Q
+;  - Deactivates CapsLock for normal use. You can turn CapsLock back on & suspend the script by pressing CapsLock + Win key.
+;  - Access the following functions when pressing CapsLock:
+;     - Ctrl         - Q
+;     - Arrow Up     - I
+;     - Arrow Down   - K
+;     - Arrow Left   - J
+;     - Arrow Right  - L
+;     - Home         - H
+;     - End          - Y
+;     - Page Up      - U
+;     - Page Down    - D
+;     - Enter        - Space
+;     - BackSpace    - B
+;     - Insert       - N
+;     - Delete       - M
+;     - PrintScreen  - P
+;     - Undo         - ,
+;     - Redo         - .
+;     - Win          - W
+;     - Esc          - SC029
+;     - F keys       - Num row if IsCzLayerOn=false
+;     - CZ keys      - Num row if IsCzLayerOn=true, followed by SC00C, SC00D, SC01B, SC01A, SC027
 
 SendMode "Input"
 
@@ -32,47 +43,57 @@ return
 CapsLock & q:: Send "{Blind}{Ctrl Down}"
 CapsLock & q up:: Send "{Blind}{Ctrl Up}"
 
+; CapsLock + I => Arrow Up
+CapsLock & i:: Send "{Blind}{Up Down}"
+
+; CapsLock + K => Arrow Down
+CapsLock & k:: Send "{Blind}{Down Down}"
+
+; CapsLock + J => Arrow Left
+CapsLock & j:: Send "{Blind}{Left Down}"
+
+; CapsLock + L => Arrow Right
+CapsLock & l:: Send "{Blind}{Right Down}"
+
+; CapsLock + H => Home
+CapsLock & h:: Send "{Blind}{Home}"
+
+; CapsLock + Y => End
+CapsLock & y:: Send "{Blind}{End}"
+
+; CapsLock + U => Page Up
+CapsLock & u:: Send "{Blind}{PgUp}"
+
+; CapsLock + O => Page Down
+CapsLock & o:: Send "{Blind}{PgDn}"
+
+; CapsLock + Space => Enter
+CapsLock & Space:: Send "{Enter}"
+
+; CapsLock + B => BackSpace
+CapsLock & b:: Send "{Blind}{BS}"
+
+; CapsLock + N => Insert
+CapsLock & n:: Send "{Blind}{Insert}"
+
+; CapsLock + M => Delete
+CapsLock & m:: Send "{Blind}{Del}"
+
+; CapsLock + P => PrintScreen
+CapsLock & p:: Send "{PrintScreen}"
+
 ; CapsLock + , => Undo
 CapsLock & ,:: Send "{Blind}{Ctrl Down}{z}{Ctrl Up}"
 
 ; CapsLock + . => Redo
 CapsLock & .:: Send "{Blind}{Ctrl Down}{y}{Ctrl Up}"
 
-; CapsLock + J, K, L, I => Left, Down, Right, Up
-CapsLock & j:: Send "{Blind}{Left Down}"
-CapsLock & k:: Send "{Blind}{Down Down}"
-CapsLock & l:: Send "{Blind}{Right Down}"
-CapsLock & i:: Send "{Blind}{Up Down}"
-
-; CapsLock + O, U, H, E => Pg Down, Pg Up, Home, End
-CapsLock & h:: Send "{Blind}{Home}"
-CapsLock & e:: Send "{Blind}{End}"
-CapsLock & u:: Send "{Blind}{PgUp}"
-CapsLock & o:: Send "{Blind}{PgDn}"
-
-; CapsLock + B, N, M => Backspace, Insert, Delete
-CapsLock & b:: Send "{Blind}{BS}"
-CapsLock & n:: Send "{Blind}{Insert}"
-CapsLock & m:: Send "{Blind}{Del}"
-
-; Fn + P -> PrintScreen
-CapsLock & p:: Send "{PrintScreen}"
-
-; CapsLock + T => Tab
-CapsLock & t:: Send "{Blind}{Tab}"
-
-; CapsLock + Tab => Previous tab
-CapsLock & Tab::Send "{Blind}{Ctrl Down}{Shift Down}{Tab Down}"
-
 ; CapsLock + W => Win key
 CapsLock & w:: Send "{Blind}{LWin Down}"
 CapsLock & w up:: Send "{Blind}{LWin Up}"
 
-; CapsLock + Space => Enter
-CapsLock & Space:: Send "{Enter}"
-
-; Capsloc + ~` => Esc
-CapsLock & SC029:: Send "{Blind}{Esc}"   ; SC029 = ~`
+; Capsloc + SC029 (~`) => Esc
+CapsLock & SC029:: Send "{Blind}{Esc}"
 CapsLock & SC029 up:: Send "{Blind}{Esc Up}"
 
 ; Win key + CapsLock => Suspend hotkeys and return the normal CapsLock on/off functionality
@@ -144,17 +165,17 @@ CapsLock & 9:: CapsLockNumberRowHandler("9", "00CD", "00ED", "F9")
 ; CapsLock + 0 => Latin letter "e" with an acute accent or F10 (if IsCzLayerOn is false)
 CapsLock & 0:: CapsLockNumberRowHandler("0", "00C9", "00E9", "F10")
 
-; CapsLock + -_ => Latin letter "d" with a caron or F11 (if IsCzLayerOn is false)
+; CapsLock + SC00D (-_) => Latin letter "d" with a caron or F11 (if IsCzLayerOn is false)
 CapsLock & SC00C:: CapsLockNumberRowHandler("SC00C", "010E", "010F", "F11")
 
-; CapsLock + =+ => Latin letter "t" with a caron or F12 (if IsCzLayerOn is false)
+; CapsLock + SC00D (=+) => Latin letter "t" with a caron or F12 (if IsCzLayerOn is false)
 CapsLock & SC00D:: CapsLockNumberRowHandler("SC00D", "0164", "0165", "F12")
 
-; CapsLock + =+ => Latin letter "n" with a caron or do nothing (if IsCzLayerOn is false)
+; CapsLock + SC01B (]}) => Latin letter "n" with a caron or do nothing (if IsCzLayerOn is false)
 CapsLock & SC01B:: CapsLockNumberRowHandler("SC01B", "0147", "0148", "")
 
-; CapsLock + [{ => Latin letter "u" with an acute accent or do nothing (if IsCzLayerOn is false)
+; CapsLock + SC01A ([{) => Latin letter "u" with an acute accent or do nothing (if IsCzLayerOn is false)
 CapsLock & SC01A:: CapsLockNumberRowHandler("SC01A", "00DA", "00FA", "")
 
-; CapsLock + ;: => Latin letter "u" with a ring or do nothing (if IsCzLayerOn is false)
+; CapsLock + SC027 (;:) => Latin letter "u" with a ring or do nothing (if IsCzLayerOn is false)
 CapsLock & SC027:: CapsLockNumberRowHandler("SC027", "016E", "016F", "")
