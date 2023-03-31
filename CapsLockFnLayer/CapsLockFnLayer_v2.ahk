@@ -119,7 +119,7 @@ CapsLock & c:: {
 }
 
 ; Function to handle the key events for the number row
-CapsLockNumberRowHandler(key, unicodeShifted, unicodeUnshifted, functionKey) {
+CapsLockNumberRowHandler(unicodeShifted, unicodeUnshifted, functionKey) {
    global IsCzLayerOn
    If IsCzLayerOn {
       If GetKeyState("Shift", "P")
@@ -136,46 +136,46 @@ CapsLockNumberRowHandler(key, unicodeShifted, unicodeUnshifted, functionKey) {
 }
 
 ; CapsLock + 1 => Latin letter "o" with an acute accent or F1 (if IsCzLayerOn is false)
-CapsLock & 1:: CapsLockNumberRowHandler("1", "00D3", "00F3", "F1")
+CapsLock & 1:: CapsLockNumberRowHandler("00D3", "00F3", "F1")
 
 ; CapsLock + 2 => Latin letter "e" with a caron or F2 (if IsCzLayerOn is false)
-CapsLock & 2:: CapsLockNumberRowHandler("2", "011A", "011B", "F2")
+CapsLock & 2:: CapsLockNumberRowHandler("011A", "011B", "F2")
 
 ; CapsLock + 3 => Latin letter "s" with a caron or F3 (if IsCzLayerOn is false)
-CapsLock & 3:: CapsLockNumberRowHandler("3", "0160", "0161", "F3")
+CapsLock & 3:: CapsLockNumberRowHandler("0160", "0161", "F3")
 
 ; CapsLock + 4 => Latin letter "c" with a caron or F4 (if IsCzLayerOn is false)
-CapsLock & 4:: CapsLockNumberRowHandler("4", "010C", "010D", "F4")
+CapsLock & 4:: CapsLockNumberRowHandler("010C", "010D", "F4")
 
 ; CapsLock + 5 => Latin letter "r" with a caron or F5 (if IsCzLayerOn is false)
-CapsLock & 5:: CapsLockNumberRowHandler("5", "0158", "0159", "F5")
+CapsLock & 5:: CapsLockNumberRowHandler("0158", "0159", "F5")
 
 ; CapsLock + 6 => Latin letter "z" with a caron or F6 (if IsCzLayerOn is false)
-CapsLock & 6:: CapsLockNumberRowHandler("6", "017D", "017E", "F6")
+CapsLock & 6:: CapsLockNumberRowHandler("017D", "017E", "F6")
 
 ; CapsLock + 7 => Latin letter "y" with an acute accent or F7 (if IsCzLayerOn is false)
-CapsLock & 7:: CapsLockNumberRowHandler("7", "00DD", "00FD", "F7")
+CapsLock & 7:: CapsLockNumberRowHandler("00DD", "00FD", "F7")
 
 ; CapsLock + 8 => Latin letter "a" with an acute accent or F8 (if IsCzLayerOn is false)
-CapsLock & 8:: CapsLockNumberRowHandler("8", "00C1", "00E1", "F8")
+CapsLock & 8:: CapsLockNumberRowHandler("00C1", "00E1", "F8")
 
 ; CapsLock + 9 => Latin letter "i" with an acute accent or F9 (if IsCzLayerOn is false)
-CapsLock & 9:: CapsLockNumberRowHandler("9", "00CD", "00ED", "F9")
+CapsLock & 9:: CapsLockNumberRowHandler("00CD", "00ED", "F9")
 
 ; CapsLock + 0 => Latin letter "e" with an acute accent or F10 (if IsCzLayerOn is false)
-CapsLock & 0:: CapsLockNumberRowHandler("0", "00C9", "00E9", "F10")
+CapsLock & 0:: CapsLockNumberRowHandler("00C9", "00E9", "F10")
 
 ; CapsLock + SC00D (-_) => Latin letter "d" with a caron or F11 (if IsCzLayerOn is false)
-CapsLock & SC00C:: CapsLockNumberRowHandler("SC00C", "010E", "010F", "F11")
+CapsLock & SC00C:: CapsLockNumberRowHandler("010E", "010F", "F11")
 
 ; CapsLock + SC00D (=+) => Latin letter "t" with a caron or F12 (if IsCzLayerOn is false)
-CapsLock & SC00D:: CapsLockNumberRowHandler("SC00D", "0164", "0165", "F12")
+CapsLock & SC00D:: CapsLockNumberRowHandler("0164", "0165", "F12")
 
 ; CapsLock + SC01B (]}) => Latin letter "n" with a caron or do nothing (if IsCzLayerOn is false)
-CapsLock & SC01B:: CapsLockNumberRowHandler("SC01B", "0147", "0148", "")
+CapsLock & SC01B:: CapsLockNumberRowHandler("0147", "0148", "")
 
 ; CapsLock + SC01A ([{) => Latin letter "u" with an acute accent or do nothing (if IsCzLayerOn is false)
-CapsLock & SC01A:: CapsLockNumberRowHandler("SC01A", "00DA", "00FA", "")
+CapsLock & SC01A:: CapsLockNumberRowHandler("00DA", "00FA", "")
 
 ; CapsLock + SC027 (;:) => Latin letter "u" with a ring or do nothing (if IsCzLayerOn is false)
-CapsLock & SC027:: CapsLockNumberRowHandler("SC027", "016E", "016F", "")
+CapsLock & SC027:: CapsLockNumberRowHandler("016E", "016F", "")
