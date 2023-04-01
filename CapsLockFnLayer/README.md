@@ -1,0 +1,23 @@
+**Functionality**:
+- Deactivates CapsLock for normal use. You can turn CapsLock back on & suspend the script by pressing CapsLock + Win key.
+- Access the following functions when pressing CapsLock:
+-- Ctrl         - Q
+-- Arrow Up     - I
+-- Arrow Down   - K
+-- Arrow Left   - J
+-- Arrow Right  - L
+-- Home         - H
+-- End          - Y
+-- Page Up      - U
+-- Page Down    - D
+-- Enter        - Space
+-- BackSpace    - B
+-- Insert       - N
+-- Delete       - M
+-- PrintScreen  - P
+-- Undo         - ,
+-- Redo         - .
+-- Win          - W
+-- Esc          - SC029
+-- F keys       - Num row if IsCzLayerOn=false
+-- CZ keys      - Num row if IsCzLayerOn=true, followed by SC00C, SC00D, SC01B, SC01A, SC027
